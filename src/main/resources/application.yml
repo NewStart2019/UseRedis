@@ -1,0 +1,32 @@
+spring:
+    main:
+        banner-mode: off
+    mvc:
+        pathmatch:
+            matching-strategy: ant_path_matcher
+    # redis 集群配置
+    redis:
+        timeout: 60000ms
+        password: xxxxxxx
+        database: 0
+        cluster:
+            # 连接池参数
+            min-idle: 8
+            max-idle: 16
+            max-active: 32
+            nodes:
+                - xxxxxxx
+                - xxxxxxx
+                - 127.0.0.1:7003
+            max-redirects: 6
+
+springfox:
+    documentation:
+        swagger-ui:
+            base-url: /
+            enabled: true
+
+server:
+    port: 80
+    servlet:
+        context-path: /
