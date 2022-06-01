@@ -4,6 +4,7 @@ import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.ResolvableType;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -49,4 +50,17 @@ class UseRedisLimitApplicationTests {
         System.out.println(result);
     }
 
+
+    // 测试 ResolvableType
+    @Test
+    @Ignore
+    public void testResolvableType() throws NoSuchFieldException {
+        ResolvableType t = ResolvableType.forField(getClass().getDeclaredField("redisTemplate"));
+        t.getSuperType(); // AbstractMap<Integer, List<String>>
+        t.asMap(); // Map<Integer, List<String>>
+        t.getGeneric(0).resolve(); // Integer
+        t.getGeneric(1).resolve(); // List
+        t.getGeneric(1); // List<String>
+        t.resolveGeneric(1, 0); // String
+    }
 }

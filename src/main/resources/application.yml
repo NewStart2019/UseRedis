@@ -7,7 +7,7 @@ spring:
     # redis 集群配置
     redis:
         timeout: 60000ms
-        password: xxxxxxx
+        password: rollinrockz
         database: 0
         cluster:
             # 连接池参数
@@ -15,9 +15,9 @@ spring:
             max-idle: 16
             max-active: 32
             nodes:
-                - xxxxxxx
-                - xxxxxxx
-                - 127.0.0.1:7003
+                - 124.221.109.245:7002
+                - 124.221.109.245:7003
+                - 124.221.109.245:7004
             max-redirects: 6
 
 springfox:
@@ -30,3 +30,5 @@ server:
     port: 80
     servlet:
         context-path: /
+    tomcat:
+        basedir: D:/home/futureCountry/upload
