@@ -106,7 +106,7 @@ public class Swagger2Config {
                 // 设置标题
                 .title("管理系统 接口文档")
                 // 描述
-                .description("描述：用于中国联通管理集团旗下公司的人员信息,具体包括XXX,XXX模块...")
+                .description("描述：具体包括XXX,XXX模块...")
                 // 作者信息
                 .contact(new Contact("使用redis集群限流示例项目", null, null))
                 // 版本

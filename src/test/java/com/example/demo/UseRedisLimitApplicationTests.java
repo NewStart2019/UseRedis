@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.mapper.FileMapper;
+import com.example.demo.model.File;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
@@ -14,12 +16,17 @@ import org.springframework.scripting.support.ResourceScriptSource;
 import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @SpringBootTest
 class UseRedisLimitApplicationTests {
 
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
+
+    @Resource
+    private FileMapper fileMapper;
 
     // 测试checkandset.lua脚本
     @Ignore
@@ -62,5 +69,11 @@ class UseRedisLimitApplicationTests {
         t.getGeneric(1).resolve(); // List
         t.getGeneric(1); // List<String>
         t.resolveGeneric(1, 0); // String
+    }
+
+    @Test
+    public void testFileSelect() {
+        List<File> files = fileMapper.selectByMap(new HashMap<>());
+        System.out.println(files.get(0).toString());
     }
 }

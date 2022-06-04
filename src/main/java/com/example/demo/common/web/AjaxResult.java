@@ -13,6 +13,7 @@ public class AjaxResult<T> {
 
     private Integer code;
     private String msg;
+    private Boolean error;
     private T data;
 
 

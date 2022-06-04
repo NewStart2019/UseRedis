@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--        要和某一个接口的全类名保持一致-->
+<mapper namespace="com.example.demo.model.File">
+    <resultMap type="com.example.demo.model.File" id="FileMap">
+        <result property="id" column="id" javaType="Long"/>
+        <result property="fileName" column="file_name" javaType="String"/>
+        <result property="md5" column="md5" javaType="String"/>
+        <result property="uploadTime" column="upload_time" javaType="Date"/>
+        <result property="status" column="status" javaType="Integer"/>
+    </resultMap>
+
+    <!-- sql语句要和mapper接口中的方法名相对应-->
+
+</mapper>
