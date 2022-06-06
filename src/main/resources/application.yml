@@ -50,3 +50,8 @@ server:
                 development: true
     self-path:
         basedir: D:/home/futureCountry/upload
+
+    tomcat:
+        use-relative-redirects: true
+        remote-ip-header: X-Real-IP
+        protocol-header: X-Forwarded-Proto
