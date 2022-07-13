@@ -2,7 +2,6 @@ package com.example.demo;
 
 import com.example.demo.mapper.FileMapper;
 import com.example.demo.model.File;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +28,6 @@ class UseRedisLimitApplicationTests {
     private FileMapper fileMapper;
 
     // 测试checkandset.lua脚本
-    @Ignore
     @Test
     void contextLoads() throws IOException {
         //redisTemplate.opsForValue().set("lua:key", "aaa");
@@ -44,7 +42,6 @@ class UseRedisLimitApplicationTests {
     }
 
     // 测试counterLimiter.lua脚本
-    @Ignore
     @Test
     void testCounterLimiter() throws IOException {
         // 根据脚本文件位置创建ScriptSource对象
@@ -60,8 +57,7 @@ class UseRedisLimitApplicationTests {
 
     // 测试 ResolvableType
     @Test
-    @Ignore
-    public void testResolvableType() throws NoSuchFieldException {
+    void testResolvableType() throws NoSuchFieldException {
         ResolvableType t = ResolvableType.forField(getClass().getDeclaredField("redisTemplate"));
         t.getSuperType(); // AbstractMap<Integer, List<String>>
         t.asMap(); // Map<Integer, List<String>>
@@ -72,7 +68,7 @@ class UseRedisLimitApplicationTests {
     }
 
     @Test
-    public void testFileSelect() {
+    void testFileSelect() {
         List<File> files = fileMapper.selectByMap(new HashMap<>());
         System.out.println(files.get(0).toString());
     }

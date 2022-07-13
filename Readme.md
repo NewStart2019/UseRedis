@@ -44,3 +44,7 @@
                集群脑裂会（sentinel无法感知到master节点把从节点提升为主节点）导致两个客户端拥有同一把锁
     * 3、IP限流
     
+    
+    * 4、阿里云快递查询
+        https://gitee.com/zqh_mayun/java-workspace.git
+        java-workspace/ Spring Boot 系列 / SpringBoot(45) 实现快递物流查询(阿里云)

@@ -1,6 +1,5 @@
 package com.example.demo.util;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,9 +25,9 @@ public class SaveFile {
      * @return 保存结果
      * @throw Exception
      */
-    public static boolean saveFile(@NotNull final String savePath,
-                                   @NotNull final String fileFullName,
-                                   @NotNull final MultipartFile file)
+    public static boolean saveFile(final String savePath,
+                                   final String fileFullName,
+                                   final MultipartFile file)
             throws Exception {
         byte[] data = readInputStream(file.getInputStream());
         //new一个文件对象用来保存图片，默认保存当前工程根目录

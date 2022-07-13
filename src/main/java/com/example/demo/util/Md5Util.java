@@ -1,6 +1,5 @@
 package com.example.demo.util;
 
-import com.sun.istack.internal.NotNull;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -10,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class Md5Util {
 
-    public static StringBuilder createMd5(@NotNull final MultipartFile file) throws NoSuchAlgorithmException, IOException {
+    public static StringBuilder createMd5(final MultipartFile file) throws NoSuchAlgorithmException, IOException {
         StringBuilder sb = new StringBuilder();
         //生成MD5实例
         MessageDigest md5 = MessageDigest.getInstance("MD5");

@@ -2,7 +2,6 @@ package com.example.demo.util;
 
 import com.example.demo.model.UploadInfo;
 import com.example.demo.service.FileService;
-import com.sun.istack.internal.NotNull;
 
 import java.io.*;
 import java.sql.Date;
@@ -19,7 +18,7 @@ public class FileUtil {
      *
      * @return 深拷贝得到的新实例
      */
-    public static Object deepClone(@NotNull final Object object) throws IOException, ClassNotFoundException {
+    public static Object deepClone(final Object object) throws IOException, ClassNotFoundException {
         // 序列化
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -38,8 +37,8 @@ public class FileUtil {
      * @param chunks 总的块数
      * @return boolean值
      */
-    public static boolean isAllUploaded(@NotNull final String md5,
-                                        @NotNull final String chunks) {
+    public static boolean isAllUploaded(final String md5,
+                                        final String chunks) {
         int size = (int) uploadInfoList.stream().filter(item -> md5 == null || md5.equals(item.getMd5())).distinct().count();
         boolean bool = (size == Integer.parseInt(chunks));
         if (size == Integer.parseInt(chunks)) {
@@ -57,8 +56,8 @@ public class FileUtil {
      * @param filePath    保存路径
      * @throws IOException 异常 抛异常代表失败了
      */
-    public static void saveStreamToFile(@NotNull final InputStream inputStream,
-                                        @NotNull final String filePath) throws IOException {
+    public static void saveStreamToFile(final InputStream inputStream,
+                                        final String filePath) throws IOException {
         /*创建输出流，写入数据，合并分块*/
         OutputStream outputStream = new FileOutputStream(filePath);
         byte[] buffer = new byte[1024];
@@ -84,7 +83,7 @@ public class FileUtil {
      * @return 是否删除成功
      */
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public static boolean deleteFolder(@NotNull final String folderPath) {
+    public static boolean deleteFolder(final String folderPath) {
         File dir = new File(folderPath);
         File[] files = dir.listFiles();
         if (files != null) {
@@ -107,9 +106,9 @@ public class FileUtil {
      * @throws IOException 归并失败
      */
     public static void mergeFile(final int chunksNumber,
-                                 @NotNull final String ext,
-                                 @NotNull final String guid,
-                                 @NotNull final String uploadFolderPath)
+                                 final String ext,
+                                 final String guid,
+                                 final String uploadFolderPath)
             throws IOException {
         /*合并输入流*/
         String mergePath = uploadFolderPath + guid + "/";
@@ -140,10 +139,10 @@ public class FileUtil {
      * @param ext         文件后缀名
      * @param fileService fileService
      */
-    public static void uploaded(@NotNull final String md5, @NotNull final String guid,
-                                @NotNull final String chunk, @NotNull final String chunks,
-                                @NotNull final String uploadFolderPath, @NotNull final String fileName,
-                                @NotNull final String ext, @NotNull final FileService fileService)
+    public static void uploaded(final String md5, final String guid,
+                                final String chunk, final String chunks,
+                                final String uploadFolderPath, final String fileName,
+                                final String ext, final FileService fileService)
             throws IOException {
         synchronized (uploadInfoList) {
             uploadInfoList.add(new UploadInfo(md5, chunks, chunk, uploadFolderPath, fileName, ext));
